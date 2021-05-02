@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>To-Do List Web Application</h1>
+      <h1>To-Do List Web-App</h1>
       <form>
         <input
           value={input}
