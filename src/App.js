@@ -1,15 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, FormControl, InputLabel, Input } from "@material-ui/core";
 import "./App.css";
 import Todo from "./Todo";
+import db from "./firebase";
 
 function App() {
-  const [todos, setTodos] = useState(["Skuhaj veceru", "Uradi zadacu"]);
+  const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    db.collection("todos").onSnapshot((snapshot) => {
+      setTodos(snapshot.docs.map((doc) => doc.data().todo));
+    });
+  }, []);
 
   const addTodo = (event) => {
     event.preventDefault();
-    setTodos([...todos, input]);
+
+    db.collection("todos").add({
+      todo: input,
+    });
+
     setInput("");
   };
 
