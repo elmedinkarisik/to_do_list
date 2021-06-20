@@ -28,10 +28,6 @@ function Todo(props) {
   const [input, setInput] = useState();
   const classes = useStyles();
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
   const updateTodo = () => {
     db.collection("todos").doc(props.todo.id).set(
       {

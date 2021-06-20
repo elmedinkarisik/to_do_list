@@ -14,7 +14,10 @@ function App() {
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         setTodos(
-          snapshot.docs.map((doc) => ({ id: doc.id, todo: doc.data().todo }))
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            todo: doc.data().todo,
+          }))
         );
       });
   }, []);
@@ -35,7 +38,7 @@ function App() {
       <h1>To-Do List Web-App</h1>
       <form>
         <FormControl>
-          <InputLabel>Write a To-Do</InputLabel>
+          <InputLabel>Your To-Do</InputLabel>
           <Input
             value={input}
             onChange={(event) => setInput(event.target.value)}
@@ -48,7 +51,7 @@ function App() {
           variant="contained"
           color="primary"
         >
-          Add Item
+          Add To-Do
         </Button>
       </form>
 
