@@ -42,7 +42,6 @@ function Todo(props) {
     <>
       <Modal open={open} onClose={(e) => setOpen(false)}>
         <div className={classes.paper}>
-          <h1>Modal</h1>
           <input
             placeholder={props.todo.todo}
             value={input}
@@ -54,7 +53,7 @@ function Todo(props) {
       <List className="todo__list">
         <ListItem>
           <ListItemAvatar />
-          <ListItemText primary={props.todo.todo} secondary="Deadline" />
+          <ListItemText primary={props.todo.todo} secondary="Dummy Deadline" />
         </ListItem>
         <button onClick={(e) => setOpen(true)}>Edit To-Do</button>
         <DeleteForeverIcon
